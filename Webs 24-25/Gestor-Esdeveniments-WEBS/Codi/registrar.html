@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar-se</title>
+    <!-- Enllaç al fitxer CSS per donar estil a la pàgina -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenidor principal del formulari -->
+    <div class="form-wrapper">
+        <div class="form-container">
+            <!-- Formulari de registre -->
+            <form id="register-form" method="POST" action="registrar.php">
+                <h2>Registrar-se</h2>
+                <!-- Camp per introduir el nom d'usuari -->
+                <label for="username">Nom d'Usuari:</label>
+                <input type="text" id="username" name="username" required>
+                <!-- Camp per introduir la data de naixement -->
+                <label for="data_naixament">Data de Naixement:</label>
+                <input type="date" id="data_naixament" name="data_naixament" required>
+                <!-- Camp per introduir el poble -->
+                <label for="poble">Poble:</label>
+                <input type="text" id="poble" name="poble" required>
+                <!-- Camp per introduir l'email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <!-- Camp per introduir la contrasenya -->
+                <label for="password">Contrasenya:</label>
+                <input type="password" id="password" name="password" required>
+                <!-- Camp per confirmar la contrasenya -->
+                <label for="confirm-password">Confirmar Contrasenya:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <!-- Enllaç per iniciar sessió si ja es té un compte -->
+                <p>Ja tens compte? <a href="iniciarSessio.html">Inicia Sessió!</a></p>
+                <!-- Botó per enviar el formulari -->
+                <input type="submit" value="Registrar-se">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

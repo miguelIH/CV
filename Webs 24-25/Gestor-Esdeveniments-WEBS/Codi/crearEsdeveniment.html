@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Esdeveniment</title>
+    <!-- Enllaç al fitxer CSS per donar estil a la pàgina -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-wrapper-esdeveniment">
+        <div class="form-container-esdeveniment">
+            <!-- Formulari per crear un esdeveniment -->
+            <form id="crear-esdeveniment-form" method="POST" action="crearEsdeveniment.php">
+                <div class="form-column">
+                    <h2>Lloc</h2>
+                    <!-- Camp per introduir la localitat -->
+                    <label for="nom_lloc">Localitat:</label>
+                    <input type="text" id="nom_lloc" name="nom_lloc" required>
+                    <!-- Camp per introduir la provincia -->
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia" required>
+                    <!-- Camp per introduir la capacitat -->
+                    <label for="capacitat">Capacitat:</label>
+                    <input type="number" id="capacitat" name="capacitat" required>
+                </div>
+                <div class="form-column">
+                    <h2>Crear Esdeveniment</h2>
+                    <!-- Camp per introduir el nom de l'esdeveniment -->
+                    <label for="nom_events">Nom de l'Esdeveniment:</label>
+                    <input type="text" id="nom_events" name="nom_events" required>
+                    <!-- Camp per introduir la descripció de l'esdeveniment -->
+                    <label for="descripcio">Descripció:</label>
+                    <textarea id="descripcio" name="descripcio" rows="3" required></textarea>
+                    <!-- Camp per seleccionar el color de l'esdeveniment -->
+                    <label for="color">Color:</label>
+                    <input type="color" id="color" name="color" value="#ffffff" required>
+                    <!-- Camp per introduir la data d'inici de l'esdeveniment -->
+                    <label for="data_inici">Data d'Inici:</label>
+                    <input type="datetime-local" id="data_inici" name="data_inici" required>
+                    <!-- Camp per introduir la data de fi de l'esdeveniment -->
+                    <label for="data_fi">Data de Fi:</label>
+                    <input type="datetime-local" id="data_fi" name="data_fi" required>
+                </div>
+                <div class="form-column">
+                    <h2>Organitzador</h2>
+                    <!-- Camp per introduir el nom de l'organitzador -->
+                    <label for="nom_organizador">Nom:</label>
+                    <input type="text" id="nom_organizador" name="nom_organizador" required>
+                    <!-- Camp per introduir l'email de l'organitzador -->
+                    <label for="email_organizador">Email:</label>
+                    <input type="email" id="email_organizador" name="email_organizador" required>
+                    <!-- Camp per introduir el telèfon de l'organitzador -->
+                    <label for="telefon_organizador">Telèfon:</label>
+                    <input type="text" id="telefon_organizador" name="telefon_organizador" required>
+                </div>
+                <div class="form-section-submit">
+                    <!-- Botó per enviar el formulari -->
+                    <input type="submit" value="Crear Esdeveniment">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

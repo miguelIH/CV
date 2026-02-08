@@ -1,0 +1,809 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1f1b21;
+    color: #c9bdcf;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #32203b;
+    padding: 10px 20px;
+    color: white;
+    margin: 10px 0; /* Afegir marge superior i inferior */
+    position: relative;
+    box-shadow: 0 -2px 4px #505050, 0 2px 4px #505050;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Asegura que esté a la izquierda */
+}
+.nav-center {
+    position: absolute; /* Afegir posició absoluta */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Assegurar que estigui a la dreta */
+}
+
+.nav-title {
+    margin-left: 45px;
+    font-weight: bold;
+}
+
+.nav-button {
+    background-color: #744a8b;
+    color: #f0e3f7;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Footer */
+.footer {
+    background-color: #32203b;
+    color: #f0e3f7;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    margin-bottom: 10px;
+    box-shadow: 0 -2px 4px #505050, 0 2px 4px #505050; /* Mateix color que calendar-header */
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Botó de login */
+.login-button {
+    color: #f0e3f7;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #32203b;
+    border-radius: 5px;
+}
+
+.login-button:hover {
+    background-color: #32203bcf;
+}
+
+/* Nom d'usuari */
+.username {
+    background-color: #744a8b;
+    color: #f0e3f7;
+    padding: 8px 19px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: background-color 0.3s;
+}
+
+.username:hover {
+    background-color: #f0e3f775; /* Mateix color que el calendari al passar el ratolí */
+}
+
+/* Dropdown d'usuari */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #744a8b; /* Mateix color que el botó */
+    min-width: 110px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 5px; /* Afegir marge superior */
+}
+
+.user-dropdown-content a {
+    color: #f0e3f7;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #f0e3f775; /* Mateix color que el calendari al passar el ratolí */
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+/* Calendar Header */
+.calendar-header {
+    width: 100%;
+    background-color: #1f1b21;
+    padding: 8px;
+    text-align: center;
+    top: 50px;
+}
+
+.calendar-header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #744a8b;
+}
+
+/* Calendar Controls */
+.calendar-controls {
+    margin-top: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.calendar-controls select, .calendar-controls input {
+    padding: 10px;
+    font-size: 1em;
+    margin: 5px;
+    border: 1px solid #744a8b;
+    border-radius: 5px;
+    background-color: #2b1c33;
+    color: #c9bdcf;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-controls select:hover, .calendar-controls input:hover {
+    background-color: #3a2a44;
+    color: #ffffff;
+}
+
+.calendar-controls select:focus, .calendar-controls input:focus {
+    background-color: #3a2a44;
+    color: #ffffff;
+    border-color: #e5dcf8;
+}
+
+.calendar-controls input[type="number"]::-webkit-inner-spin-button,
+.calendar-controls input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    background-color: #2b1c33;
+    color: #c9bdcf;
+}
+
+/* Contenidor del calendari */
+.calendar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #1f1b21;
+}
+
+/* Calendari */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.day-header {
+    background-color: #2b1c33;
+    border: 1px solid #1f1b21;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#calendar-days {
+    display: contents;
+}
+
+.day {
+    background-color: #32203b;
+    border: 1px solid #1f1b21;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-height: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.day .event {
+    margin-top: 5px; /* Afegir espai entre els esdeveniments */
+    padding: 2px;
+    font-size: 13px; /* Ajusta la mida segons sigui necessari */
+    background-color: #ccc;
+    color: #000000;
+    border-radius: 3px;
+    text-align: left;
+    display: block; /* Assegura que els esdeveniments s'apilin de forma vertical */
+    width: 100%; /* Fa que els esdeveniments ocupin tot l'ample del contenidor del dia */
+}
+
+.event-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-card {
+    background-color: #32203b;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-title {
+    font-size: 1.5em;
+    color: #f0e3f7;
+    margin-bottom: 10px;
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.event-detail {
+    background-color: #2b1c33;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.event-detail strong {
+    color: #744a8b;
+}
+
+.day:hover {
+    background-color: #f0e3f775;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event {
+    display: flex;
+    margin: 2px;
+    padding: 2px;
+    font-size: 12px;
+    background-color: #ccc;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.day::before {
+    content: attr(data-day);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.9em;
+    color: #f0e3f7;
+}
+
+/* Formulari */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-color: #32203b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 90%;
+    max-width: 20%;
+    text-align: left;
+    color: #c9bdcf;
+}
+
+.form-container label {
+    font-size: 1.2em;
+    color: #c9bdcf;
+}
+
+.form-container textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #744a8b;
+    border-radius: 5px;
+    background-color: #2b1c33;
+    color: #c9bdcf;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="color"],
+.form-container input[type="datetime-local"],
+.form-container input[type="number"],
+.form-container input[type="date"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #744a8b;
+    border-radius: 5px;
+    background-color: #2b1c33;
+    color: #c9bdcf;
+    box-sizing: border-box;
+}
+
+.form-container input[type="submit"] {
+    background-color: #744a8b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #3a2a44;
+}
+
+.form-container p {
+    margin: 10px 0;
+    color: #c9bdcf;
+}
+
+.form-container a {
+    color: #f0e3f7;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Opcions del dia */
+.day-options {
+    display: none;
+    position: absolute;
+    background-color: #1f1b21; /* Mateix color que el dropdown-content de la navbar */
+    color: #f0e3f7;
+    border: 1px solid #1f1b21;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.day-options a {
+    color: #f0e3f7;
+    text-decoration: none;
+    display: block;
+    padding: 12px 16px; /* Mateix padding que el dropdown-content de la navbar */
+}
+
+.day-options a:hover {
+    background-color: #f0e3f775; /* Mateix color que el dropdown-content de la navbar al passar el ratolí */
+}
+
+/* Esdeveniments */
+/* Estils específics per al formulari de crear esdeveniments */
+.form-wrapper-esdeveniment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.form-container-esdeveniment {
+    background-color: #32203b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    min-height: 500px;
+    width: 90%;
+    max-width: 100%;
+    text-align: left;
+    color: #c9bdcf;
+}
+
+#crear-esdeveniment-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnes a la quadrícula */
+    gap: 10px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px; /* Ajustar el marge per controlar l'espai al voltant de les columnes */
+}
+
+.form-column:nth-child(1) {
+    grid-column: 1;
+}
+
+.form-column:nth-child(2) {
+    grid-column: 2;
+}
+
+.form-column:nth-child(3) {
+    grid-column: 3;
+}
+
+.form-container-esdeveniment label {
+    font-size: 0.9em;
+    color: #c9bdcf;
+}
+
+.form-container-esdeveniment textarea,
+.form-container-esdeveniment input[type="text"],
+.form-container-esdeveniment input[type="email"],
+.form-container-esdeveniment input[type="password"],
+.form-container-esdeveniment input[type="color"],
+.form-container-esdeveniment input[type="datetime-local"],
+.form-container-esdeveniment input[type="number"],
+.form-container-esdeveniment input[type="date"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 6px;
+    margin: 6px 0;
+    border: 1px solid #744a8b;
+    border-radius: 5px;
+    background-color: #2b1c33;
+    color: #c9bdcf;
+    box-sizing: border-box;
+}
+
+.form-container-esdeveniment input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 30px;
+}
+
+.form-container-esdeveniment input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.form-container-esdeveniment input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+.form-container-esdeveniment .form-section-submit {
+    grid-column: span 3; /* Assegura que el botó de submit ocupi l'ample de les tres columnes */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-container-esdeveniment input[type="submit"] {
+    background-color: #744a8b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.form-container-esdeveniment input[type="submit"]:hover {
+    background-color: #3a2a44;
+}
+
+/* eventReviews.php */
+.reviews-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.event-header {
+    background-color: #32203b;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #f0e3f7;
+}
+.review-card {
+    background-color: #32203b;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.review-rating {
+    font-size: 1.3em;
+    color: #cabe03;
+}
+.review-content {
+    color: #c9bdcf;
+}
+.review-username {
+    font-size: 1.1em;
+    color: #744a8b;
+    font-weight: bold;
+}        
+.review-footer {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #744a8b;
+}
+.back-link {
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+}
+.back-link a {
+    color: #f0e3f7;
+    text-decoration: none;
+    font-size: 1em;
+}
+.back-link a:hover {
+    text-decoration: underline;
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.popup-content {
+    background-color: #32203b;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    color: #f0e3f7;
+}
+.popup-content textarea {
+    background-color: #7e5194;
+    color: #f0e3f7;
+}
+.popup-content textarea::placeholder {
+    background-color: #7e5194;
+    color: #f0e3f7;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #f0e3f7;
+    text-decoration: none;
+    cursor: pointer;
+}
+.add-review-btn {
+    background-color: #744a8b;
+    color: #f0e3f7;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.star-rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: left;
+}
+.star-rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size: 1.5em;
+    color: #cabe03;
+    cursor: pointer;
+}
+.star-rating > span:hover:before,
+.star-rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    color: #cabe03;
+}
+
+/* listaEventos.php */
+
+.event-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.event-card {
+    background-color: #32203b;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.event-title {
+    font-size: 1.5em;
+    color: #f0e3f7;
+    margin-bottom: 10px;
+}
+.event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+.event-detail {
+    background-color: #2b1c33;
+    padding: 10px;
+    border-radius: 5px;
+}
+.event-detail strong {
+    color: #744a8b;
+}
+.rating-link {
+    color: #f0e3f7;
+    text-decoration: none;
+    background-color: #744a8b;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: block; /* Fa que l'enllaç comenci en una nova línia */
+    margin-top: 5px; /* Afegeix espai a sobre de l'enllaç */
+}
+.rating-link:hover {
+    background-color: #3a2a44;
+}
+
+@media screen and (max-width: 1366px) {
+    /* Adjustments for laptop screens */
+    .calendar {
+        width: 95%;
+    }
+
+    .day {
+        padding: 15px;
+        min-height: 60px;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.8em;
+    }
+
+    .nav-title {
+        font-size: 0.9em;
+    }
+
+    .nav-button, .username {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* Adjustments for smaller screens */
+    .calendar {
+        width: 100%;
+    }
+
+    .day {
+        padding: 10px;
+        min-height: 50px;
+    }
+
+    .day-header {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.5em;
+    }
+
+    .nav-center {
+        display: none; /* Hide the center title on smaller screens */
+    }
+
+    .nav-right {
+        margin-left: 0;
+    }
+
+    .form-container-esdeveniment {
+        padding: 10px;
+    }
+
+    #crear-esdeveniment-form {
+        grid-template-columns: 1fr; /* Stack form columns on smaller screens */
+    }
+
+    .form-column {
+        margin: 5px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Adjustments for mobile screens */
+    .calendar-container {
+        padding-top: 80px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .day {
+        padding: 5px;
+        min-height: 40px;
+        font-size: 0.8em;
+    }
+
+    .day::before {
+        font-size: 0.7em;
+    }
+
+    .calendar-controls select, .calendar-controls input {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .event-details {
+        grid-template-columns: 1fr;
+    }
+}
+
