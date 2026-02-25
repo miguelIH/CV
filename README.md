@@ -1,6 +1,6 @@
 # <p align="center"> El meu CV en github </p>
 ---
-Durant el temps que he estat estudiant he anat aconseguint diferents diplomes sobre administració de servidors Windows i Linux, de xarxes CCNA, tinc coneixements bàsics en python, php, HTML i css. També he usat programaas com PostgresSQL, Docker i Docker kubernetes, tinc aquests coneixements basics. I també he fet treballs amb apache. He volgut fer aquest portafali en github per a poder usar els meus projectes fets en el grau superior d'ASIX que he realitzat. Prèviament, vaig fer el grau mitjà de SMX, en el centre Sa Palomera de Blanes. 
+Durant el temps que he estat estudiant he anat aconseguint diferents diplomes sobre administració de servidors Windows i Linux, de xarxes CCNA, tinc coneixements bàsics en python, php, HTML i css. També he usat programaas com PostgresSQL, Docker i Docker kubernetes, tinc aquests coneixements basics. I també he fet treballs amb apache. He volgut fer aquest portafali en github per a poder usar els meus projectes fets en el grau superior d'ASIX. Prèviament, vaig fer el grau mitjà de SMX, en el centre Sa Palomera de Blanes. 
 
 <br>
 
