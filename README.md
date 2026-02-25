@@ -9,9 +9,7 @@ Tambié soc una persona amb moltes ganes d'aprendre i de continuar formant-me.
 <br>
 
 Contacte: miiguel.ih.13@gmail.com
-
 <br>
-
 Miguel Ibañez Hernando.
 
 
