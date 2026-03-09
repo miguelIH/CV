@@ -22,3 +22,6 @@ Tambien soy una persona con muchas ganas de aprender y de seguir formandome.
 Contacto: miiguel.ih.13@gmail.com
 <br>
 Miguel Ibañez Hernando.
+
+
+[CV_Miguel_Ibanez_1.pdf](https://github.com/user-attachments/files/25843027/CV_Miguel_Ibanez_1.pdf)
