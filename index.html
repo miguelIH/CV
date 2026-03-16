@@ -493,7 +493,7 @@
       <li><a href="#sobre">sobre</a></li>
       <li><a href="#skills">skills</a></li>
       <li><a href="#experiencia">experiència</a></li>
-      <li><a href="#ipop">IPOP</a></li>
+      <li><a href="#projectes">projectes</a></li>
       <li><a href="#educacio">educació</a></li>
       <li><a href="#contact">contacte</a></li>
     </ul>
@@ -645,40 +645,120 @@
     </div>
   </section>
 
-  <!-- IPOP -->
-  <div id="ipop">
-    <div class="inner">
+  <!-- PROJECTES -->
+  <section id="projectes" style="max-width:100%; background:var(--navy2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding: 6rem 4rem;">
+    <div style="max-width:1100px; margin:0 auto;">
       <div class="reveal">
-        <p class="section-tag">projecte ASIX</p>
-        <h2>IPOP — Infraestructura i Projectes</h2>
-        <p style="color:var(--cyan2); font-size:0.95rem; margin-bottom:2rem; max-width:600px; line-height:1.7;">
-          Projecte realitzat durant el FPGS ASIX a l'Institut Sa Palomera. 
-          Documentació completa d'infraestructura IT, serveis de xarxa i administració de sistemes.
+        <p class="section-tag">repositori github</p>
+        <h2>Projectes</h2>
+        <p style="color:var(--cyan2); font-size:0.95rem; margin-bottom:3rem; max-width:650px; line-height:1.7;">
+          Projectes desenvolupats durant la formació en SMX i ASIX. Codi, documentació i configuracions reals de sistemes, xarxes i aplicacions web.
         </p>
       </div>
-      <div class="ipop-grid">
-        <div class="ipop-card reveal">
-          <h3>// Serveis de Xarxa</h3>
-          <p>Configuració i desplegament de serveis DNS, DHCP, HTTP, FTP i SSH en entorns Linux i Windows Server.</p>
+
+      <!-- PROJECT CARDS GRID -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
+
+        <!-- PROJECTE 1: Sistema Hospitalari -->
+        <div class="ipop-card reveal" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="margin:0;">// Sistema de Gestió Hospitalari</h3>
+              <span class="tag">Python</span>
+            </div>
+            <p style="margin-bottom:1rem;">Aplicació CLI per gestionar un hospital. Inclou connectivitat de xarxa, sistema de login amb encriptació, disseny ER, model relacional i esquema de seguretat.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;">
+              <span class="tag">Python</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Cryptography</span>
+              <span class="tag">CSV</span>
+              <span class="tag">TCP/IP</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--gray); margin-bottom:1rem;">
+              📋 10 entregas · Planificació → Manual d'usuari
+            </div>
+          </div>
+          <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2024-25" target="_blank" class="ipop-link">→ Veure a GitHub</a>
         </div>
-        <div class="ipop-card reveal">
-          <h3>// Virtualització</h3>
-          <p>Implementació de màquines virtuals amb VirtualBox i Docker. Gestió de contenidors i desplegament de serveis.</p>
+
+        <!-- PROJECTE 2: Gestor d'Esdeveniments -->
+        <div class="ipop-card reveal" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="margin:0;">// Gestor d'Esdeveniments</h3>
+              <span class="tag">PHP</span>
+            </div>
+            <p style="margin-bottom:1rem;">Aplicació web completa per gestionar un calendari d'esdeveniments. Inclou registre d'usuaris, login, CRUD d'events, reviews i base de dades PostgreSQL.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;">
+              <span class="tag">PHP</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Apache</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--gray); margin-bottom:1rem;">
+              🗓️ Login · Calendari · CRUD · Reviews
+            </div>
+          </div>
+          <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Webs%2024-25" target="_blank" class="ipop-link">→ Veure a GitHub</a>
         </div>
-        <div class="ipop-card reveal">
-          <h3>// Seguretat</h3>
-          <p>Configuració de firewalls, VPNs i polítiques de seguretat. Hardening de sistemes i gestió d'usuaris.</p>
+
+        <!-- PROJECTE 3: Docker + Apache -->
+        <div class="ipop-card reveal" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="margin:0;">// Infraestructura Docker + Apache</h3>
+              <span class="tag">Docker</span>
+            </div>
+            <p style="margin-bottom:1rem;">Desplegament d'una infraestructura completa amb Docker Compose. Conté Apache (frontend + API), MySQL, Redis, VirtualHosts, SSL/TLS i logs estructurats en JSON.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;">
+              <span class="tag">Docker</span>
+              <span class="tag">Apache</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">SSL/TLS</span>
+              <span class="tag">PHP</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--gray); margin-bottom:1rem;">
+              🐳 Frontend · API · BD · Cache · HTTPS
+            </div>
+          </div>
+          <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2025-26" target="_blank" class="ipop-link">→ Veure a GitHub</a>
         </div>
-        <div class="ipop-card reveal">
-          <h3>// Documentació Tècnica</h3>
-          <p>Elaboració de guies, procediments i documentació de projectes seguint estàndards professionals IT.</p>
+
+        <!-- PROJECTE 4: Icecast Radio -->
+        <div class="ipop-card reveal" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="margin:0;">// Servidor de Ràdio Icecast</h3>
+              <span class="tag">Linux</span>
+            </div>
+            <p style="margin-bottom:1rem;">Configuració i desplegament d'un servidor de streaming d'àudio amb Icecast2 en Linux. Documentació completa del procés d'instal·lació, configuració i proves.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;">
+              <span class="tag">Icecast2</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Streaming</span>
+              <span class="tag">Audio</span>
+              <span class="tag">Serveis Xarxa</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--gray); margin-bottom:1rem;">
+              📻 Servidor streaming · Config · Documentació
+            </div>
+          </div>
+          <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2025-26" target="_blank" class="ipop-link">→ Veure a GitHub</a>
         </div>
+
       </div>
-      <a href="https://github.com/miguelIH/IPOP" target="_blank" class="ipop-link reveal">
-        → Veure projecte IPOP complet a GitHub
-      </a>
+
+      <div style="margin-top:2.5rem;" class="reveal">
+        <a href="https://github.com/miguelIH" target="_blank" class="btn btn-outline" style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; letter-spacing:0.1em; padding:0.75rem 1.8rem; border-radius:2px; text-decoration:none; border:1px solid var(--cyan); color:var(--cyan); display:inline-block; transition:all 0.2s;">
+          → Veure tots els repositoris a GitHub
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
+
+
 
   <!-- EDUCACIÓ -->
   <section id="educacio">
@@ -716,8 +796,8 @@
     <div class="reveal">
       <p class="section-tag">contacte</p>
       <h2>Parlem</h2>
-      <a href="mailto:miiguel.ih.13@gmail.com" class="contact-email">
-        miiguel.ih.13@gmail.com
+      <a href="/cdn-cgi/l/email-protection#4b2622222c3e2e27652223657a780b2c262a222765282426" class="contact-email">
+        <span class="__cf_email__" data-cfemail="92fffbfbf5e7f7febcfbfabca3a1d2f5fff3fbfebcf1fdff">[email&#160;protected]</span>
       </a>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/miguel-ih/" target="_blank" class="social-link">LinkedIn</a>
@@ -731,7 +811,7 @@
     <p>© 2026 · Miguel Ibañez Hernando · Blanes, Girona</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Custom cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
@@ -752,13 +832,4 @@
     // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
+       
