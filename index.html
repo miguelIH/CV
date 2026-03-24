@@ -6,6 +6,78 @@
   <title>Miguel Ibañez | Portfolio</title>
   <meta name="description" content="Portfolio personal de Miguel Ibañez Hernando, estudiant d'ASIX amb projectes de sistemes, xarxes, Docker i desenvolupament web." />
   <style>
+    /* ===== Languages ===== */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .language-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .language-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .language-level {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .level-native {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+        }
+
+        .level-b1 {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .level-basic {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        .language-bar-container {
+            margin-top: 1rem;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .language-bar {
+            height: 100%;
+            border-radius: 50px;
+            transition: width 1.5s ease-out;
+        }
+
+        .bar-native {
+            width: 100%;
+            background: var(--gradient-1);
+        }
+
+        .bar-b1 {
+            width: 60%;
+            background: var(--gradient-2);
+        }
+
+        .bar-basic {
+            width: 30%;
+            background: var(--gradient-3);
+        }
     :root{
       --bg:#0b1120;
       --bg-soft:#121a2d;
@@ -376,7 +448,7 @@
           <ul class="hero-list">
             <li><strong>Ubicació</strong><span>Blanes, Girona</span></li>
             <li><strong>Formació</strong><span>SMX + ASIX</span></li>
-            <li><strong>Interès</strong><span>Sistemes, xarxes i cloud</span></li>
+            <li><strong>Interès</strong><span>Sistemes, xarxes</span></li>
             <li><strong>Stack</strong><span>Linux, Docker, PHP, Python, PostgreSQL</span></li>
           </ul>
         </aside>
@@ -591,6 +663,36 @@
         </article>
       </div>
     </section>
+
+    <section id="languages" class="reveal">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-globe"></i></div>
+                <h2>Idiomes</h2>
+                <p>Competències lingüístiques</p>
+            </div>
+            <div class="languages-grid">
+                <div class="card language-card">
+                    <div class="language-name">🇪🇸 Castellà</div>
+                    <span class="language-level level-native">Natiu</span>
+                    <div class="language-bar-container">
+                        <div class="language-bar bar-native"></div>
+                    </div>
+                </div>
+                <div class="card language-card">
+                    <div class="language-name">🏴 Català</div>
+                    <span class="language-level level-native">Natiu</span>
+                    <div class="language-bar-container">
+                        <div class="language-bar bar-native"></div>
+                    </div>
+                </div>
+                <div class="card language-card">
+                    <div class="language-name">🇬🇧 Anglès</div>
+                    <span class="language-level level-b1">Mitjà — B1</span>
+                    <div class="language-bar-container">
+                        <div class="language-bar bar-b1"></div>
+                    </div>
+                </div>
+        </section>
 
     <section id="educacio" class="container">
       <h2 class="section-title">Educació</h2>
