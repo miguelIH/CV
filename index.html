@@ -6,408 +6,216 @@
   <title>Miguel Ibañez | Portfolio</title>
   <meta name="description" content="Portfolio personal de Miguel Ibañez Hernando, estudiant d'ASIX amb projectes de sistemes, xarxes, Docker i desenvolupament web." />
   <style>
-    /* ===== Languages ===== */
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .language-card {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .language-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.75rem;
-        }
-
-        .language-level {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .level-native {
-            background: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
-            border: 1px solid rgba(34, 197, 94, 0.25);
-        }
-
-        .level-b1 {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.25);
-        }
-
-        .level-basic {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.25);
-        }
-
-        .language-bar-container {
-            margin-top: 1rem;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50px;
-            overflow: hidden;
-        }
-
-        .language-bar {
-            height: 100%;
-            border-radius: 50px;
-            transition: width 1.5s ease-out;
-        }
-
-        .bar-native {
-            width: 100%;
-            background: var(--gradient-1);
-        }
-
-        .bar-b1 {
-            width: 60%;
-            background: var(--gradient-2);
-        }
-
-        .bar-basic {
-            width: 30%;
-            background: var(--gradient-3);
-        }
-    :root{
-      --bg:#0b1120;
-      --bg-soft:#121a2d;
-      --card:#172036;
-      --line:#27324d;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --accent:#38bdf8;
-      --accent-2:#22c55e;
-      --white:#ffffff;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
-      --radius:18px;
-      --max:1150px;
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #121a2d;
+      --card: #172036;
+      --line: #27324d;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+      --max: 1150px;
+      /* Gradientes para las barras de idiomas */
+      --gradient-1: linear-gradient(90deg, #38bdf8, #22c55e);
+      --gradient-2: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      --gradient-3: linear-gradient(90deg, #f59e0b, #ef4444);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      background:linear-gradient(180deg,#0b1120 0%, #0f172a 100%);
-      color:var(--text);
-      line-height:1.6;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    a{
-      color:var(--accent);
-      text-decoration:none;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: .9; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
     }
 
-    a:hover{
-      opacity:.9;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,17,32,.75);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
-    .container{
-      width:min(100% - 2rem,var(--max));
-      margin:0 auto;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(12px);
-      background:rgba(11,17,32,.75);
-      border-bottom:1px solid rgba(255,255,255,.06);
+    .brand { font-weight: 800; color: var(--white); letter-spacing: .3px; }
+    .brand span { color: var(--accent); }
+
+    nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+    nav a { color: var(--text); font-weight: 600; font-size: .95rem; }
+
+    .hero { padding: 5rem 0 3rem; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 2rem;
+      align-items: center;
     }
 
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:1rem 0;
-      gap:1rem;
+    .eyebrow {
+      display: inline-block;
+      padding: .35rem .7rem;
+      border: 1px solid rgba(56,189,248,.25);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(56,189,248,.08);
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
-    .brand{
-      font-weight:800;
-      color:var(--white);
-      letter-spacing:.3px;
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin: .2rem 0 1rem;
+      color: var(--white);
     }
 
-    .brand span{
-      color:var(--accent);
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 720px; }
+    .cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .9rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: .2s ease;
+      border: 1px solid transparent;
     }
 
-    nav{
-      display:flex;
-      gap:1rem;
-      flex-wrap:wrap;
+    .btn-primary { background: var(--accent); color: #07111f; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { border-color: rgba(255,255,255,.1); background: rgba(255,255,255,.04); color: var(--text); }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 1.5rem;
     }
 
-    nav a{
-      color:var(--text);
-      font-weight:600;
-      font-size:.95rem;
+    .hero-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; }
+    .hero-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .hero-list li:last-child { border-bottom: none; }
+
+    section { padding: 4rem 0 2rem; }
+    .section-title { font-size: 2rem; margin: 0 0 .5rem; color: var(--white); }
+    .section-text { color: var(--muted); max-width: 760px; margin-bottom: 1.5rem; }
+
+    .grid { display: grid; gap: 1.2rem; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
     }
 
-    .hero{
-      padding:5rem 0 3rem;
+    .card h3 { margin: .2rem 0 .6rem; color: var(--white); }
+    .card p { color: var(--muted); margin: 0 0 1rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .8rem; }
+    .tag {
+      background: rgba(56,189,248,.08);
+      color: #c7f0ff;
+      border: 1px solid rgba(56,189,248,.18);
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:2rem;
-      align-items:center;
+    /* Idiomes Styles */
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
 
-    .eyebrow{
-      display:inline-block;
-      padding:.35rem .7rem;
-      border:1px solid rgba(56,189,248,.25);
-      border-radius:999px;
-      color:var(--accent);
-      background:rgba(56,189,248,.08);
-      font-size:.9rem;
-      font-weight:700;
-      margin-bottom:1rem;
+    .language-card { text-align: center; padding: 1.5rem; }
+    .language-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; }
+    .language-level {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
 
-    h1{
-      font-size:clamp(2.4rem,5vw,4.2rem);
-      line-height:1.05;
-      margin:.2rem 0 1rem;
-      color:var(--white);
+    .level-native { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); }
+    .level-b1 { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); }
+
+    .language-bar-container {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50px;
+      overflow: hidden;
     }
 
-    .hero p{
-      color:var(--muted);
-      font-size:1.05rem;
-      max-width:720px;
+    .language-bar { height: 100%; border-radius: 50px; }
+    .bar-native { width: 100%; background: var(--gradient-1); }
+    .bar-b1 { width: 60%; background: var(--gradient-2); }
+
+    .timeline-item {
+      padding: 1.2rem;
+      border-left: 3px solid var(--accent);
+      background: var(--card);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      border: 1px solid var(--line);
+      margin-bottom: 1rem;
     }
 
-    .cta{
-      display:flex;
-      gap:1rem;
-      flex-wrap:wrap;
-      margin-top:1.6rem;
+    .timeline-item .date { color: var(--accent); font-weight: 700; font-size: .92rem; }
+
+    .contact-box {
+      text-align: center;
+      padding: 3rem;
+      background: linear-gradient(180deg, rgba(56,189,248,.08), rgba(255,255,255,.03));
+      border: 1px solid rgba(56,189,248,.15);
+      border-radius: 24px;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.9rem 1.2rem;
-      border-radius:12px;
-      font-weight:700;
-      transition:.2s ease;
-      border:1px solid transparent;
-    }
+    footer { padding: 4rem 0; color: var(--muted); text-align: center; font-size: .95rem; }
 
-    .btn-primary{
-      background:var(--accent);
-      color:#07111f;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-secondary{
-      border-color:rgba(255,255,255,.1);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-      border-radius:var(--radius);
-      padding:1.5rem;
-    }
-
-    .hero-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:.8rem;
-    }
-
-    .hero-list li{
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      padding:.75rem 0;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .hero-list li:last-child{
-      border-bottom:none;
-    }
-
-    section{
-      padding:2rem 0 1rem;
-    }
-
-    .section-title{
-      font-size:2rem;
-      margin:0 0 .5rem;
-      color:var(--white);
-    }
-
-    .section-text{
-      color:var(--muted);
-      max-width:760px;
-      margin-bottom:1.5rem;
-    }
-
-    .grid{
-      display:grid;
-      gap:1.2rem;
-    }
-
-    .grid-3{
-      grid-template-columns:repeat(3,1fr);
-    }
-
-    .grid-2{
-      grid-template-columns:repeat(2,1fr);
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1.3rem;
-      box-shadow:var(--shadow);
-    }
-
-    .card h3{
-      margin:.2rem 0 .6rem;
-      color:var(--white);
-    }
-
-    .card p{
-      color:var(--muted);
-      margin:0 0 1rem;
-    }
-
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-      margin-top:.8rem;
-    }
-
-    .tag{
-      background:rgba(56,189,248,.08);
-      color:#c7f0ff;
-      border:1px solid rgba(56,189,248,.18);
-      padding:.35rem .65rem;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:600;
-    }
-
-    .project-card{
-      display:flex;
-      flex-direction:column;
-      gap:.8rem;
-      height:100%;
-    }
-
-    .project-top{
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      align-items:flex-start;
-    }
-
-    .project-type{
-      font-size:.82rem;
-      font-weight:800;
-      color:var(--accent-2);
-      letter-spacing:.4px;
-      text-transform:uppercase;
-    }
-
-    .project-links{
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-      margin-top:.6rem;
-    }
-
-    .project-links a{
-      font-weight:700;
-      font-size:.95rem;
-    }
-
-    .timeline{
-      display:grid;
-      gap:1rem;
-    }
-
-    .timeline-item{
-      padding:1.2rem;
-      border-left:3px solid var(--accent);
-      background:var(--card);
-      border-radius:0 var(--radius) var(--radius) 0;
-      border:1px solid var(--line);
-    }
-
-    .timeline-item .date{
-      color:var(--accent);
-      font-weight:700;
-      font-size:.92rem;
-    }
-
-    .timeline-item h3{
-      margin:.35rem 0;
-    }
-
-    .contact-box{
-      text-align:center;
-      padding:2rem;
-      background:linear-gradient(180deg, rgba(56,189,248,.08), rgba(255,255,255,.03));
-      border:1px solid rgba(56,189,248,.15);
-      border-radius:24px;
-    }
-
-    footer{
-      padding:2rem 0 3rem;
-      color:var(--muted);
-      text-align:center;
-      font-size:.95rem;
-    }
-
-    @media (max-width: 900px){
-      .hero-grid,
-      .grid-3,
-      .grid-2{
-        grid-template-columns:1fr;
-      }
-
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      nav{
-        gap:.8rem;
-      }
-
-      .hero{
-        padding:3.5rem 0 2rem;
-      }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      header { position: relative; }
     }
   </style>
 </head>
@@ -420,6 +228,7 @@
         <a href="#skills">Skills</a>
         <a href="#experiencia">Experiència</a>
         <a href="#projectes">Projectes</a>
+        <a href="#languages">Idiomes</a>
         <a href="#educacio">Educació</a>
         <a href="#contacte">Contacte</a>
       </nav>
@@ -434,22 +243,19 @@
           <h1>Miguel Ibañez Hernando</h1>
           <p>
             Estudiant d'ASIX amb base en SMX i interès clar en sistemes, xarxes, Docker, serveis Linux
-            i desplegament d'aplicacions. Aquest espai recull el meu perfil i alguns dels projectes
-            que he desenvolupat durant la meva formació.
+            i desplegament d'aplicacions.
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="#projectes">Veure projectes</a>
-            <a class="btn btn-secondary" href="https://github.com/miguelIH" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://github.com/miguelIH" target="_blank">GitHub</a>
             <a class="btn btn-secondary" href="mailto:miiguel.ih.13@gmail.com">Email</a>
           </div>
         </div>
-
         <aside class="hero-card">
           <ul class="hero-list">
             <li><strong>Ubicació</strong><span>Blanes, Girona</span></li>
             <li><strong>Formació</strong><span>SMX + ASIX</span></li>
-            <li><strong>Interès</strong><span>Sistemes, xarxes</span></li>
-            <li><strong>Stack</strong><span>Linux, Docker, PHP, Python, PostgreSQL</span></li>
+            <li><strong>Stack</strong><span>Linux, Docker, SQL</span></li>
           </ul>
         </aside>
       </div>
@@ -459,88 +265,29 @@
       <h2 class="section-title">Sobre mi</h2>
       <p class="section-text">
         He estudiat SMX i actualment estic cursant ASIX a l'Institut Sa Palomera de Blanes.
-        Durant aquest temps he treballat amb Linux, Windows Server, xarxes TCP/IP, serveis
-        com Apache, DNS i DHCP, bases de dades PostgreSQL, contenidors Docker i desenvolupament
-        web amb PHP, HTML, CSS i JavaScript.
-      </p>
-      <p class="section-text">
-        També he realitzat pràctiques en entorns reals, tant a Blanes com a Portugal, cosa que
-        m'ha ajudat a millorar la meva adaptació, autonomia i capacitat per resoldre incidències.
+        Treballo amb Linux, Windows Server, Docker i desenvolupament web.
       </p>
     </section>
 
     <section id="skills" class="container">
       <h2 class="section-title">Skills tècniques</h2>
-      <p class="section-text">
-        Aquestes són les àrees amb les quals he treballat de forma pràctica durant el cicle.
-      </p>
-
       <div class="grid grid-3">
         <article class="card">
           <h3>Xarxes</h3>
-          <p>Configuració i manteniment de xarxes locals, adreçament IP, VLANs i serveis bàsics.</p>
           <div class="tags">
-            <span class="tag">TCP/IP</span>
-            <span class="tag">VLANs</span>
-            <span class="tag">DNS</span>
-            <span class="tag">DHCP</span>
-            <span class="tag">CCNA</span>
+            <span class="tag">TCP/IP</span><span class="tag">VLANs</span><span class="tag">CCNA</span>
           </div>
         </article>
-
         <article class="card">
           <h3>Sistemes</h3>
-          <p>Administració bàsica de sistemes Linux i Windows Server en entorns acadèmics i de pràctiques.</p>
           <div class="tags">
-            <span class="tag">Linux</span>
-            <span class="tag">Ubuntu</span>
-            <span class="tag">Debian</span>
-            <span class="tag">Windows Server</span>
+            <span class="tag">Linux</span><span class="tag">Debian</span><span class="tag">Windows Server</span>
           </div>
         </article>
-
         <article class="card">
-          <h3>Virtualització i contenidors</h3>
-          <p>Desplegament de serveis i proves amb entorns virtuals i contenidors.</p>
+          <h3>Virtualització</h3>
           <div class="tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Docker Compose</span>
-            <span class="tag">VirtualBox</span>
-            <span class="tag">VMware</span>
-            <span class="tag">Proxmox</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Desenvolupament</h3>
-          <p>Aplicacions web i scripts per a projectes del cicle formatiu.</p>
-          <div class="tags">
-            <span class="tag">PHP</span>
-            <span class="tag">Python</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Bases de dades</h3>
-          <p>Disseny, connexió i gestió de dades en diferents pràctiques i projectes.</p>
-          <div class="tags">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Model relacional</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Altres</h3>
-          <p>Configuració de serveis, seguretat bàsica i documentació tècnica de projectes.</p>
-          <div class="tags">
-            <span class="tag">Apache</span>
-            <span class="tag">SSL/TLS</span>
-            <span class="tag">Firewalls</span>
-            <span class="tag">Documentació</span>
+            <span class="tag">Docker</span><span class="tag">Proxmox</span><span class="tag">VMware</span>
           </div>
         </article>
       </div>
@@ -548,151 +295,59 @@
 
     <section id="experiencia" class="container">
       <h2 class="section-title">Experiència</h2>
-      <p class="section-text">Experiència acadèmica i professional més rellevant.</p>
-
       <div class="timeline">
         <article class="timeline-item">
           <div class="date">Març 2025 — Maig 2025</div>
           <h3>Tècnic IT en pràctiques · Amarante, Portugal</h3>
-          <p>Pràctiques internacionals en entorn IT, treballant amb sistemes i xarxes en anglès i adaptant-me a un entorn professional nou.</p>
-        </article>
-
-        <article class="timeline-item">
-          <div class="date">Setembre 2022 — Març 2023</div>
-          <h3>Pràctiques SMX · Institut Manyanet</h3>
-          <p>Suport tècnic a usuaris, manteniment d'equips i resolució d'incidències bàsiques.</p>
+          <p>Pràctiques internacionals treballant amb sistemes i xarxes.</p>
         </article>
       </div>
     </section>
 
     <section id="projectes" class="container">
       <h2 class="section-title">Projectes</h2>
-      <p class="section-text">
-        Alguns projectes que tinc pujats al repositori i que reflecteixen el que he anat treballant
-        a classe: sistemes, aplicacions web, Docker i serveis Linux.
-      </p>
-
       <div class="grid grid-2">
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <div class="project-type">Python · PostgreSQL</div>
-              <h3>Sistema de Gestió Hospitalari</h3>
-            </div>
-          </div>
-          <p>
-            Projecte acadèmic desenvolupat per entregues, orientat a la gestió d'un hospital.
-            Inclou connectivitat, login, model ER, model relacional i esquema de seguretat.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Cryptography</span>
-            <span class="tag">Seguretat</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2024-25" target="_blank" rel="noopener noreferrer">Veure carpeta</a>
-          </div>
+        <article class="card">
+          <h3>Infraestructura Docker</h3>
+          <p>Muntatge amb Docker Compose, Apache, MySQL i SSL.</p>
+          <a href="https://github.com/miguelIH" target="_blank">Veure repositori</a>
         </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <div class="project-type">PHP · PostgreSQL</div>
-              <h3>Gestor d'Esdeveniments</h3>
-            </div>
-          </div>
-          <p>
-            Aplicació web amb registre i login d'usuaris, gestió d'esdeveniments, reviews i
-            base de dades PostgreSQL. Un projecte complet de desenvolupament web.
-          </p>
-          <div class="tags">
-            <span class="tag">PHP</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Webs%2024-25" target="_blank" rel="noopener noreferrer">Veure carpeta</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <div class="project-type">Docker · Apache</div>
-              <h3>Infraestructura Docker + Apache</h3>
-            </div>
-          </div>
-          <p>
-            Muntatge d'una infraestructura amb Docker Compose que integra serveis com Apache,
-            MySQL, Redis, virtual hosts i configuració SSL/TLS.
-          </p>
-          <div class="tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Apache</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">Redis</span>
-            <span class="tag">SSL/TLS</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2025-26" target="_blank" rel="noopener noreferrer">Veure carpeta</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <div class="project-type">Linux · Streaming</div>
-              <h3>Servidor de Ràdio Icecast</h3>
-            </div>
-          </div>
-          <p>
-            Configuració d'un servidor Icecast2 en Linux per a streaming d'àudio, amb documentació
-            del procés d'instal·lació, configuració i proves de funcionament.
-          </p>
-          <div class="tags">
-            <span class="tag">Icecast2</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Streaming</span>
-            <span class="tag">Serveis</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/miguelIH/miguelIH.github.io/tree/main/Serveis%2025-26" target="_blank" rel="noopener noreferrer">Veure carpeta</a>
-          </div>
+        <article class="card">
+          <h3>Servidor Icecast</h3>
+          <p>Streaming d'àudio en Linux.</p>
+          <a href="https://github.com/miguelIH" target="_blank">Veure repositori</a>
         </article>
       </div>
     </section>
 
-    <section id="languages" class="reveal">
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-globe"></i></div>
-                <h2>Idiomes</h2>
-                <p>Competències lingüístiques</p>
-            </div>
-            <div class="languages-grid">
-                <div class="card language-card">
-                    <div class="language-name">Castellà</div>
-                    <span class="language-level level-native">Natiu</span>
-                    <div class="language-bar-container">
-                        <div class="language-bar bar-native"></div>
-                    </div>
-                </div>
-                <div class="card language-card">
-                    <div class="language-name">Català</div>
-                    <span class="language-level level-native">Natiu</span>
-                    <div class="language-bar-container">
-                        <div class="language-bar bar-native"></div>
-                    </div>
-                </div>
-                <div class="card language-card">
-                    <div class="language-name">Anglès</div>
-                    <span class="language-level level-b1">Mitjà — B1</span>
-                    <div class="language-bar-container">
-                        <div class="language-bar bar-b1"></div>
-                    </div>
-                </div>
-        </section>
+    <section id="languages" class="container">
+      <h2 class="section-title">Idiomes</h2>
+      <p class="section-text">Competències lingüístiques</p>
+      
+      <div class="languages-grid">
+        <div class="card language-card">
+          <div class="language-name">Castellà</div>
+          <span class="language-level level-native">Natiu</span>
+          <div class="language-bar-container">
+            <div class="language-bar bar-native"></div>
+          </div>
+        </div>
+        <div class="card language-card">
+          <div class="language-name">Català</div>
+          <span class="language-level level-native">Natiu</span>
+          <div class="language-bar-container">
+            <div class="language-bar bar-native"></div>
+          </div>
+        </div>
+        <div class="card language-card">
+          <div class="language-name">Anglès</div>
+          <span class="language-level level-b1">Mitjà — B1</span>
+          <div class="language-bar-container">
+            <div class="language-bar bar-b1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="educacio" class="container">
       <h2 class="section-title">Educació</h2>
@@ -700,24 +355,10 @@
         <article class="card">
           <h3>FPGS ASIX</h3>
           <p>Institut Sa Palomera · Blanes</p>
-          <div class="tags">
-            <span class="tag">Linux</span>
-            <span class="tag">Windows Server</span>
-            <span class="tag">Seguretat</span>
-            <span class="tag">Xarxes</span>
-            <span class="tag">Serveis</span>
-          </div>
         </article>
-
         <article class="card">
           <h3>FPGM SMX</h3>
           <p>Institut Sa Palomera · Blanes</p>
-          <div class="tags">
-            <span class="tag">Manteniment</span>
-            <span class="tag">Xarxes locals</span>
-            <span class="tag">Suport tècnic</span>
-            <span class="tag">CCNA</span>
-          </div>
         </article>
       </div>
     </section>
@@ -725,12 +366,8 @@
     <section id="contacte" class="container">
       <div class="contact-box">
         <h2 class="section-title">Contacte</h2>
-        <p class="section-text" style="margin:0 auto 1rem;">
-          Si vols contactar amb mi per pràctiques, feina o col·laboracions, aquí tens les meves dades.
-        </p>
         <p><strong>Email:</strong> <a href="mailto:miiguel.ih.13@gmail.com">miiguel.ih.13@gmail.com</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/miguelIH" target="_blank" rel="noopener noreferrer">github.com/miguelIH</a></p>
-        <p><strong>Telèfon:</strong> +34 690 84 66 37</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/miguelIH" target="_blank">github.com/miguelIH</a></p>
       </div>
     </section>
   </main>
